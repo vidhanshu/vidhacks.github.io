@@ -1,0 +1,791 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* header */
+
+a {
+    text-decoration: none;
+    color: rgb(85, 165, 165);
+}
+
+.head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+    user-select: none;
+}
+
+.head .menu {
+    position: absolute;
+    top: 0px;
+    color: aqua;
+}
+
+.menu {
+    margin-top: 10px;
+    position: absolute;
+    right: 0;
+    width: 40vw;
+    display: flex;
+    justify-content: space-evenly;
+    text-transform: capitalize;
+    align-items: center;
+}
+
+.bars {
+    color: aqua;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.bars:hover {
+    animation: rotate .7s;
+}
+
+.menu-list {
+    width: 0vw;
+    overflow-x: hidden;
+    height: 100vh;
+    position: fixed;
+    background-color: rgb(36, 32, 32);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: width .5s;
+}
+
+.menu-list ul {
+    min-width: 100px;
+    height: 50vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.menu-list li {
+    color: rgb(158, 207, 207);
+    list-style: none;
+    text-transform: uppercase;
+    position: relative;
+    cursor: pointer;
+}
+
+.menu-list li:hover {
+    color: aqua;
+}
+
+.menu-list li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    z-index: 3;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: width 1s;
+    background-color: aqua;
+    display: block;
+    margin: auto;
+}
+
+.menu-list li:hover::after {
+    width: 100%;
+}
+
+.times {
+    color: rgb(158, 207, 207);
+    font-size: 37px;
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    cursor: pointer;
+}
+
+.times:hover {
+    color: aqua;
+    animation: rotate .7s;
+}
+
+@media screen and (max-width:700px) {
+    .menu {
+        display: none;
+    }
+}
+
+.head .menu li {
+    list-style: none;
+    color: rgb(150, 216, 216);
+    cursor: pointer;
+    position: relative;
+}
+
+.head .menu li::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    bottom: -2px;
+    margin: auto;
+    left: 0px;
+    background-color: aqua;
+    position: absolute;
+    transition: width 1s;
+}
+
+.head .menu li:hover::after {
+    width: 100%;
+}
+
+.head .menu li:hover {
+    color: aqua;
+}
+
+.head h1 {
+    color: white;
+    text-transform: uppercase;
+    font-size: 10rem;
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    text-shadow: -5px 65px 10px rgb(175, 255, 255);
+    animation: flutter 10s linear infinite;
+    transform: translateY(-5vh);
+}
+
+@keyframes flutter {
+    0% {
+        text-shadow: none;
+    }
+    5% {
+        text-shadow: -75px 65px 10px aqua;
+    }
+    15% {
+        text-shadow: none;
+    }
+    25% {
+        text-shadow: -5px 65px 10px aqua;
+    }
+    35% {
+        text-shadow: none;
+    }
+    45% {
+        text-shadow: 75px 65px 10px aqua;
+    }
+    50% {
+        text-shadow: none;
+    }
+    51% {
+        color: rgb(15, 15, 15);
+        text-shadow: 2px 2px 20px aqua, -2px -2px 20px aqua;
+    }
+    55% {
+        color: white;
+        text-shadow: 2px 2px 8px aqua, -2px -2px 8px aqua;
+    }
+    58% {
+        color: rgb(15, 15, 15);
+        text-shadow: 2px 2px 20px aqua, -2px -2px 20px aqua;
+    }
+    59% {
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 5px aqua, -2px -2px 5px aqua;
+    }
+    62% {
+        color: rgb(15, 15, 15);
+        text-shadow: 2px 2px 20px aqua, -2px -2px 20px aqua;
+    }
+    65% {
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 5px aqua, -2px -2px 5px aqua;
+    }
+    66% {
+        color: rgb(15, 15, 15);
+        text-shadow: 2px 2px 20px aqua, -2px -2px 20px aqua;
+    }
+    69% {
+        color: rgb(255, 255, 255);
+        text-shadow: 2px 2px 5px aqua, -2px -2px 5px aqua;
+    }
+    72% {
+        color: rgb(15, 15, 15);
+        text-shadow: 2px 2px 5px aqua, -2px -2px 5px aqua;
+    }
+    100% {
+        color: rgb(17, 16, 16);
+        text-shadow: 2px 2px 20px aqua, -2px -2px 20px aqua;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .head h1 {
+        font-size: 7rem;
+    }
+}
+
+
+/* header */
+
+
+/* intro */
+
+.intro {
+    width: 70vw;
+    color: rgb(255, 255, 255);
+    margin: 90px auto 150px;
+    transform: translateX(5%);
+    text-align: justify;
+    font-family: 'Nunito', sans-serif;
+    font-size: 25px;
+    box-shadow: 1px 1px 10px rgb(44, 211, 211), -1px -1px 10px rgb(36, 197, 197);
+    border-radius: 10px;
+    padding: 30px 10px;
+}
+
+.intro h1 {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.intro p {
+    font-size: 20px;
+    width: 80%;
+    margin: auto;
+}
+
+
+/* intro */
+
+
+/* slides */
+
+.body {
+    width: 98vw;
+    margin: 90px auto;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.main-card {
+    padding: 20px 20px;
+    width: 40vw;
+    min-width: 270px;
+    display: flex;
+    background-color: rgb(24, 22, 22);
+    justify-content: space-evenly;
+    border-radius: 10px;
+    color: white;
+    margin: 10px;
+}
+
+.main-card .color-full {
+    height: 95%;
+    width: 10px;
+    margin: 0px 10px;
+    margin-right: 30px;
+    border-radius: 10px;
+    position: relative;
+    background-color: aqua;
+    box-shadow: -.2px 1px 7px rgb(57, 235, 235);
+    overflow: hidden;
+}
+
+.main-card .color-full::before {
+    content: '';
+    width: 30px;
+    height: 190px;
+    left: -2px;
+    top: -100px;
+    background: linear-gradient(hsla(0, 0%, 100%, 0), #1215c5, hsla(0, 0%, 100%, 0));
+    position: absolute;
+    animation: move linear infinite 2s;
+}
+
+.main-card .neon-but {
+    border: none;
+    margin: 20px 3px;
+    cursor: pointer;
+    padding: 8px;
+    background-color: #23232b;
+    color: rgb(172, 172, 172);
+    border-radius: 7px;
+    transition: 1s;
+    box-shadow: 1px 1px 1px black, -1px -1px 1px black;
+}
+
+.main-card .neon-but:hover {
+    color: white;
+    background-color: rgb(0, 0, 0);
+    box-shadow: .5px .5px 3px aqua, -.5px -.5px 3px aqua;
+}
+
+.card img {
+    width: 150px;
+    margin: 30px 0px;
+    display: block;
+}
+
+.card h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 10px;
+}
+
+@keyframes move {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(190%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.header {
+    height: 100vh;
+    width: 60px;
+    position: fixed;
+    top: 0px;
+    background-color: rgb(31, 29, 29);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(57, 143, 143);
+    font-size: 30px;
+}
+
+@media screen and (max-width:360px) {
+    .header {
+        top: 0;
+    }
+    .body {
+        width: 100vw;
+        margin: 90px 0px;
+    }
+}
+
+.header .center {
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header .head-icon {
+    cursor: pointer;
+}
+
+.head-icon:hover {
+    color: aqua;
+}
+
+.cards {
+    width: 100vw;
+}
+
+@media screen and (max-width:700px) {
+    .header {
+        height: 80px;
+        width: 100vw;
+        position: fixed;
+        top: 89vh;
+        background-color: rgb(31, 29, 29);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+    }
+    .header .center {
+        height: 50px;
+        width: 300px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
+    }
+    .header .head-icon {
+        cursor: pointer;
+    }
+}
+
+
+/* slides */
+
+
+/* rotate animation */
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* rotate animation */
+
+
+/* tracks */
+
+.tracks {
+    width: 89vw;
+    transform: translateX(0);
+    color: white;
+    margin: 190px auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: nunito;
+    user-select: none;
+}
+
+.tracks h1 {
+    margin: 10px 0px;
+}
+
+.tracks .tracks-card {
+    background-color: rgb(41, 34, 34);
+    min-width: 340px;
+    max-width: 400px;
+    margin: 20px 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 190px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.tracks .tracks-card h1,
+.tracks .tracks-card p {
+    z-index: 1;
+}
+
+.tracks .tracks-card::before {
+    content: '';
+    width: 150%;
+    height: 190px;
+    background-image: linear-gradient(to right, aqua, blue);
+    position: absolute;
+    left: -10;
+    animation: rotate linear infinite 4s;
+}
+
+.tracks .tracks-card::after {
+    content: '';
+    position: absolute;
+    background-color: rgb(41, 34, 34);
+    inset: 5px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width:700px) {
+    .tracks {
+        width: 80vw;
+        color: white;
+        margin: 90px auto;
+        display: block;
+        transform: translate(0);
+    }
+    .main-card {
+        padding: 20px 20px;
+        width: 40vw;
+        min-width: 300px;
+        display: flex;
+        background-color: rgb(24, 22, 22);
+        justify-content: space-evenly;
+        border-radius: 10px;
+        color: white;
+        margin: 10px;
+    }
+}
+
+
+/* tracks */
+
+
+/* processflow */
+
+.process-flow {
+    width: 82vw;
+    max-width: 600px;
+    margin: 90px auto;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.names {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    flex-basis: 40%;
+}
+
+.names p {
+    font-size: 20px;
+    margin: 70px 10px;
+}
+
+.design {
+    flex-basis: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    border: 3px solid aqua;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: -.2px 1px 7px rgb(57, 235, 235);
+}
+
+.line {
+    position: relative;
+    overflow: hidden;
+    height: 90px;
+    width: 3px;
+    background-color: aqua;
+    border-radius: -10px;
+    box-shadow: -.5px 1px 10px rgb(57, 235, 235);
+}
+
+.line::after {
+    content: '';
+    width: 70px;
+    height: 30px;
+    background: linear-gradient(hsla(0, 0%, 100%, 0), #1215c5, hsla(0, 0%, 100%, 0));
+    position: absolute;
+    animation: move linear infinite 3s;
+}
+
+@media screen and (max-width:700px) {
+    .process-flow {
+        width: 82vw;
+        height: 100vh;
+        max-width: 500px;
+        margin: 90px auto;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    .names {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+        flex-basis: 40%;
+    }
+    .names p {
+        font-size: 13px;
+        margin: 70px 10px;
+    }
+    .design {
+        flex-basis: 20%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+    .circle {
+        width: 30px;
+        height: 30px;
+        border: 3px solid aqua;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow: -.2px 1px 7px rgb(57, 235, 235);
+    }
+    .line {
+        position: relative;
+        overflow: hidden;
+        height: 60px;
+        width: 3px;
+        background-color: aqua;
+        border-radius: -10px;
+        box-shadow: -.5px 1px 10px rgb(57, 235, 235);
+    }
+}
+
+
+/* processflow */
+
+
+/* sponsers */
+
+.sponsers {
+    min-width: 450px;
+    max-width: 600px;
+    margin: 90px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    color: white;
+    font-family: nunito;
+}
+
+.sponsers h1 {
+    text-align: center;
+    font-size: 40px;
+    margin: 0px;
+}
+
+.sponsers img {
+    width: 200px;
+    margin: 40px 30px;
+}
+
+.sponsers .tree {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 90px 0px;
+}
+
+.sponsers .sapling {
+    margin: 90px 0px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 90px 0px;
+}
+
+.sponsers .shoot {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 90px 0px;
+}
+
+.sponsers .community {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 90px auto;
+}
+
+.sponsers .community img {
+    min-width: 320px;
+    max-width: 500px;
+    display: block;
+    margin: 20px auto;
+    transition: 1s;
+}
+
+.sponsers .community img:hover {
+    transform: rotate(-10deg);
+}
+
+.sponsers .community h1 {
+    font-size: 20px;
+    margin: 20px;
+}
+
+.large {
+    font-size: 35px;
+    display: block;
+    text-align: center;
+    margin: 50px 0px;
+    font-weight: bold;
+}
+
+@media screen and (max-width:700px) {
+    body {
+        overflow-x: hidden;
+    }
+    .header {
+        position: fixed;
+    }
+    .tracks {
+        width: 90vw;
+        margin: auto;
+    }
+    .tracks .tracks-card {
+        min-width: 200px;
+        max-width: 600px;
+    }
+    .sponsers {
+        min-width: 90vw;
+        max-width: 600px;
+        margin: 90px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        overflow: hidden;
+        color: white;
+        font-family: nunito;
+        overflow-x: hidden;
+        font-size: 15px;
+    }
+    .community h1 {
+        font-size: 10px;
+    }
+    .sponsers .tree {
+        flex-direction: column;
+    }
+}
+
+.location {
+    color: white;
+    font-family: nunito;
+    margin: 90px auto;
+}
+
+.location h1 {
+    text-align: center;
+    font-size: 35px;
+    margin: 20px;
+}
+
+.location .map {
+    width: 80vw;
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+}
+
+
+/* sponsers */
