@@ -64,7 +64,10 @@ a {
     overflow-x: hidden;
     height: 100vh;
     position: fixed;
-    background-color: rgb(36, 32, 32);
+    /*     background-color: rgb(36, 32, 32);
+ */
+    background-color: rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(15px);
     z-index: 2;
     display: flex;
     justify-content: center;
@@ -89,7 +92,7 @@ a {
     cursor: pointer;
 }
 
-.menu-list li:hover {
+.menu-list a:hover {
     color: aqua;
 }
 
@@ -101,7 +104,7 @@ a {
     position: absolute;
     bottom: -5px;
     left: 0;
-    transition: width 1s;
+    transition: width .5s;
     background-color: aqua;
     display: block;
     margin: auto;
@@ -373,11 +376,13 @@ a {
     align-items: center;
     color: rgb(57, 143, 143);
     font-size: 30px;
+    z-index: 190;
 }
 
 @media screen and (max-width:360px) {
     .header {
         top: 0;
+        z-index: 190;
     }
     .body {
         width: 100vw;
@@ -787,5 +792,117 @@ a {
     border-radius: 10px;
 }
 
+.glare-container {
+    user-select: none;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    flex-wrap: wrap;
+    background-color: rgb(16, 16, 65);
+    padding: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.glare-container::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    clip-path: circle(30% at 0 0);
+    background-image: linear-gradient(30deg, rgb(0, 238, 255), rgb(225, 0, 255));
+    position: absolute;
+}
+
+.glare-container::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 0, 0, 0.979), rgb(255, 0, 157));
+    clip-path: circle(40% at 100% 80%);
+    position: absolute;
+    z-index: 1;
+}
+
+.glare-card {
+    color: rgba(255, 255, 255, 0.9);
+    width: 230px;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    margin: 15px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.09);
+    z-index: 10;
+    position: relative;
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.glare-content {
+    transition: all ease-out .5s;
+    transform: translateY(170px);
+    opacity: 0;
+    margin: -10px 0px 10px 0px;
+}
+
+.glare-card:hover .glare-content {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.glare-container button {
+    border-radius: 10px;
+    padding: 8px 10px;
+    color: black;
+    border: none;
+    display: block;
+    cursor: pointer;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.849);
+    transform: translateY(90px);
+    transition: .6s;
+}
+
+.glare-card:hover button {
+    transform: translateY(0px);
+}
+
+.glare-container h1 {
+    font-weight: 900px;
+    font-size: 80px;
+    color: rgba(255, 255, 255, 0.2);
+    transform: translate(60%, 250%);
+    opacity: 0;
+    transition: all .5s;
+}
+
+.glare-card:hover h1 {
+    transform: translate(60%, -10%);
+    opacity: 1;
+}
+
+.glare-container h2 {
+    margin: 5px 0px;
+}
+
 
 /* sponsers */
+
+footer {
+    color: white;
+    text-align: center;
+    font-family: nunito;
+    margin: 90px 0px;
+}
+
+footer i {
+    color: red;
+}
